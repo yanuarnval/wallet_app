@@ -120,19 +120,19 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       (_isLoading)
                           ? Positioned(
-                              top: 0,
-                              bottom: 0,
-                              left: 0,
-                              right: 0,
-                              child: Container(
-                                color: Colors.grey.withOpacity(0.3),
-                                child: const Center(
-                                  child: CircularProgressIndicator(
-                                    color: Colors.blue,
-                                  ),
-                                ),
-                              ),
-                            )
+                        top: 0,
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        child: Container(
+                          color: Colors.grey.withOpacity(0.3),
+                          child: const Center(
+                            child: CircularProgressIndicator(
+                              color: Colors.blue,
+                            ),
+                          ),
+                        ),
+                      )
                           : const SizedBox.shrink()
                     ],
                   )),
@@ -145,7 +145,10 @@ class _LoginPageState extends State<LoginPage> {
 
   SizedBox _buildPageView(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height,
+      height: MediaQuery
+          .of(context)
+          .size
+          .height,
       child: PageView.builder(
         scrollDirection: Axis.horizontal,
         controller: _pageviewController,
@@ -241,6 +244,9 @@ class _LoginPageState extends State<LoginPage> {
           child: TextFormField(
             style: GoogleFonts.manrope(fontSize: 15.9),
             controller: _loginEmail,
+            validator:(value){
+              TextfielValidator.validate(value!);
+            },
             decoration: InputDecoration(
                 hintText: 'Email Address',
                 hintStyle: GoogleFonts.manrope(
@@ -278,13 +284,13 @@ class _LoginPageState extends State<LoginPage> {
                   },
                   child: (_loginHidepass)
                       ? SvgPicture.asset(
-                          'assets/icons/hint_eye.svg',
-                          color: Colors.black,
-                        )
+                    'assets/icons/hint_eye.svg',
+                    color: Colors.black,
+                  )
                       : SvgPicture.asset(
-                          'assets/icons/hide_eye2.svg',
-                          color: Colors.black,
-                        ),
+                    'assets/icons/hide_eye2.svg',
+                    color: Colors.black,
+                  ),
                 ),
                 suffixIconConstraints: const BoxConstraints(),
                 prefixIcon: Padding(
@@ -446,6 +452,7 @@ class _LoginPageState extends State<LoginPage> {
       ],
     );
   }
+
 
   Column _buildRegisterForm() {
     return Column(
@@ -609,5 +616,11 @@ class _LoginPageState extends State<LoginPage> {
         );
       },
     );
+  }
+}
+
+class TextfielValidator {
+  static String validate(String txt) {
+    return txt.isEmpty ? 'cannot null' : '';
   }
 }
