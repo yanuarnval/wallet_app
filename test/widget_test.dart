@@ -10,6 +10,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:technical_challange/main.dart';
+import 'package:technical_challange/network/user_api.dart';
 import 'package:technical_challange/ui/login_page.dart';
 
 void main() {
@@ -20,5 +21,9 @@ void main() {
   test('empety email returns null',(){
     final result = TextfielValidator.validate('');
     expect(result, 'cannot null');
+  });
+  test('reponse api', () async{
+    final result = await UserApi().loginUser('zxc@gmail.com', '12345678');
+    expect(result, 'zxc@gmail.com');
   });
 }
