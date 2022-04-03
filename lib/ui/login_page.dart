@@ -145,7 +145,7 @@ class _LoginPageState extends State<LoginPage> {
 
   SizedBox _buildPageView(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height+43.4,
+      height: MediaQuery.of(context).size.height+5.2,
       child: PageView.builder(
         scrollDirection: Axis.horizontal,
         controller: _pageviewController,
@@ -309,7 +309,7 @@ class _LoginPageState extends State<LoginPage> {
             Container(
               width: 21,
               height: 21,
-              margin: const EdgeInsets.only( left: 30),
+              margin: const EdgeInsets.only(left: 30),
               decoration: BoxDecoration(
                   color: const Color(0xffFAFAFA),
                   border: (_isRemember)
@@ -417,6 +417,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ],
         ),
+        const Spacer(),
         Stack(
           children: [
             SizedBox(
@@ -532,7 +533,7 @@ class _LoginPageState extends State<LoginPage> {
               height: 21,
               margin: const EdgeInsets.only(right: 9, left: 45),
               decoration: BoxDecoration(
-                  color: Color(0xffFAFAFA),
+                  color: const Color(0xffFAFAFA),
                   border: (_isRemember)
                       ? Border.all(width: 0, color: Colors.white)
                       : Border.all(color: const Color(0xffD4C5C5), width: 1),
@@ -543,7 +544,7 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                   borderRadius: BorderRadius.circular(2)),
               child: Checkbox(
-                activeColor: Color(0xff0386D0),
+                activeColor: const Color(0xff0386D0),
                 side: BorderSide.none,
                 value: _isRemember,
                 onChanged: (value) {
@@ -582,9 +583,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
           );
         }),
-        const SizedBox(
-          height: 5,
-        ),
+        const Spacer(),
         SizedBox(
             height: 280.4,
             child: Image.asset(
