@@ -5,15 +5,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:technical_challange/shared/colors_value.dart';
 
-class WalletPage extends StatefulWidget {
-  const WalletPage({Key? key}) : super(key: key);
+class WalletPage extends StatelessWidget {
+  WalletPage({Key? key}) : super(key: key);
 
-  @override
-  _WalletPageState createState() => _WalletPageState();
-}
-
-class _WalletPageState extends State<WalletPage> {
-  List<Color> gradientColors = [
+  final List<Color> gradientColors = [
     const Color(0xff199eff),
     const Color(0xff199eff).withOpacity(0),
   ];
@@ -113,7 +108,10 @@ class _WalletPageState extends State<WalletPage> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
                 decoration: BoxDecoration(
-                    border: Border.all(color: Color(0xffF2F3F3), width: 1),
+                    border: Border.all(
+                      color: const Color(0xffF2F3F3),
+                      width: 1,
+                    ),
                     borderRadius: BorderRadius.circular(5)),
                 child: Row(
                   children: [
@@ -133,19 +131,22 @@ class _WalletPageState extends State<WalletPage> {
                     ),
                     const Spacer(),
                     ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                            primary: const Color(0xffF2F3F3),
-                            minimumSize: const Size(79, 36),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(5))),
-                        child: Text(
-                          'See details',
-                          style: GoogleFonts.manrope(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 12,
-                              color: ColorsValue.black100),
-                        ))
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        primary: const Color(0xffF2F3F3),
+                        minimumSize: const Size(79, 36),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                      ),
+                      child: Text(
+                        'See details',
+                        style: GoogleFonts.manrope(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 12,
+                            color: ColorsValue.black100),
+                      ),
+                    )
                   ],
                 ),
               )
@@ -163,8 +164,11 @@ class _WalletPageState extends State<WalletPage> {
         Container(
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
-              border: Border.all(color: Color(0xffF2F3F3))),
+            borderRadius: BorderRadius.circular(5),
+            border: Border.all(
+              color: const Color(0xffF2F3F3),
+            ),
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -191,8 +195,11 @@ class _WalletPageState extends State<WalletPage> {
         Container(
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
-              border: Border.all(color: Color(0xffF2F3F3))),
+            borderRadius: BorderRadius.circular(5),
+            border: Border.all(
+              color: const Color(0xffF2F3F3),
+            ),
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -219,8 +226,11 @@ class _WalletPageState extends State<WalletPage> {
         Container(
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
-              border: Border.all(color: Color(0xffF2F3F3))),
+            borderRadius: BorderRadius.circular(5),
+            border: Border.all(
+              color: const Color(0xffF2F3F3),
+            ),
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -253,11 +263,15 @@ class _WalletPageState extends State<WalletPage> {
       aspectRatio: 1.50,
       child: Container(
         decoration: BoxDecoration(
-            borderRadius: const BorderRadius.all(
-              Radius.circular(5),
-            ),
-            color: Colors.white,
-            border: Border.all(color: Color(0xffF2F3F3), width: 1)),
+          borderRadius: const BorderRadius.all(
+            Radius.circular(5),
+          ),
+          color: Colors.white,
+          border: Border.all(
+            color: const Color(0xffF2F3F3),
+            width: 1,
+          ),
+        ),
         child: Padding(
           padding: const EdgeInsets.all(10),
           child: LineChart(
@@ -283,11 +297,12 @@ class _WalletPageState extends State<WalletPage> {
         },
         getDrawingVerticalLine: (value) {
           return FlLine(
-              color: const Color(0xffF2F3F3),
-              strokeWidth: 1,
-              dashArray: [
-                5,
-              ]);
+            color: const Color(0xffF2F3F3),
+            strokeWidth: 1,
+            dashArray: [
+              5,
+            ],
+          );
         },
       ),
       lineTouchData: LineTouchData(
@@ -295,12 +310,15 @@ class _WalletPageState extends State<WalletPage> {
           tooltipBgColor: ColorsValue.blue100,
           getTooltipItems: (value) {
             return value
-                .map((e) => LineTooltipItem(
+                .map(
+                  (e) => LineTooltipItem(
                     'on jan 2\n \$${e.y}',
                     GoogleFonts.manrope(
                         color: Colors.white,
                         fontSize: 8,
-                        fontWeight: FontWeight.w600)))
+                        fontWeight: FontWeight.w600),
+                  ),
+                )
                 .toList();
           },
         ),
@@ -382,11 +400,12 @@ class _WalletPageState extends State<WalletPage> {
     switch (value.toInt()) {
       case 0:
         return Padding(
-            child: Text(
-              'Mon',
-              style: style,
-            ),
-            padding: const EdgeInsets.only(left: 22));
+          child: Text(
+            'Mon',
+            style: style,
+          ),
+          padding: const EdgeInsets.only(left: 22),
+        );
       case 2:
         text = Text('Tue', style: style);
         break;
@@ -404,11 +423,14 @@ class _WalletPageState extends State<WalletPage> {
         break;
       case 12:
         return Padding(
-            child: Text(
-              'Sun',
-              style: style,
-            ),
-            padding: const EdgeInsets.only(right: 15));
+          child: Text(
+            'Sun',
+            style: style,
+          ),
+          padding: const EdgeInsets.only(
+            right: 15,
+          ),
+        );
 
       default:
         text = Text('', style: style);
@@ -420,7 +442,7 @@ class _WalletPageState extends State<WalletPage> {
 
   Widget leftTitleWidgets(double value, TitleMeta meta) {
     final style = GoogleFonts.manrope(
-      color: Color(0xff68737d),
+      color: const Color(0xff68737d),
       fontWeight: FontWeight.w600,
       fontSize: 12,
     );
@@ -634,10 +656,15 @@ class _WalletPageState extends State<WalletPage> {
                     children: [
                       Container(
                         padding: const EdgeInsets.symmetric(
-                            vertical: 6, horizontal: 16),
+                          vertical: 6,
+                          horizontal: 16,
+                        ),
                         decoration: BoxDecoration(
-                            border: Border.all(
-                                color: const Color(0xff666D72), width: 1)),
+                          border: Border.all(
+                            color: const Color(0xff666D72),
+                            width: 1,
+                          ),
+                        ),
                         margin: const EdgeInsets.only(top: 16.69),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -663,8 +690,11 @@ class _WalletPageState extends State<WalletPage> {
                         padding: const EdgeInsets.symmetric(
                             vertical: 6, horizontal: 16),
                         decoration: BoxDecoration(
-                            border: Border.all(
-                                color: ColorsValue.black60, width: 1)),
+                          border: Border.all(
+                            color: ColorsValue.black60,
+                            width: 1,
+                          ),
+                        ),
                         margin: const EdgeInsets.only(top: 16.69),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -755,8 +785,11 @@ class _WalletPageState extends State<WalletPage> {
                         padding: const EdgeInsets.symmetric(
                             vertical: 6, horizontal: 16),
                         decoration: BoxDecoration(
-                            border: Border.all(
-                                color: const Color(0xff666D72), width: 1)),
+                          border: Border.all(
+                            color: const Color(0xff666D72),
+                            width: 1,
+                          ),
+                        ),
                         margin: const EdgeInsets.only(top: 16.69),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -780,10 +813,15 @@ class _WalletPageState extends State<WalletPage> {
                       ),
                       Container(
                         padding: const EdgeInsets.symmetric(
-                            vertical: 6, horizontal: 16),
+                          vertical: 6,
+                          horizontal: 16,
+                        ),
                         decoration: BoxDecoration(
-                            border: Border.all(
-                                color: ColorsValue.black60, width: 1)),
+                          border: Border.all(
+                            color: ColorsValue.black60,
+                            width: 1,
+                          ),
+                        ),
                         margin: const EdgeInsets.only(top: 16.69),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,

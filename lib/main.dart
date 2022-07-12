@@ -17,16 +17,18 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitDown,
     ]);
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-            elevatedButtonTheme: ElevatedButtonThemeData(
-              style: ElevatedButton.styleFrom(
-                  primary: const Color(0xff0386D0),
-                  elevation: 0,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-                  minimumSize: const Size(double.infinity, 45)),
-            ),
-            canvasColor: Colors.white),
-        home: const LoginPage());
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(
+                primary: const Color(0xff0386D0),
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5)),
+                minimumSize: const Size(double.infinity, 45)),
+          ),
+          canvasColor: Colors.white),
+      home: const LoginPage(),
+    );
   }
 }

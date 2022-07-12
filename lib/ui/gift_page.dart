@@ -69,8 +69,9 @@ class Giftpage extends StatelessWidget {
                   width: 69,
                   height: 5,
                   decoration: BoxDecoration(
-                      color: const Color(0xff666D72),
-                      borderRadius: BorderRadius.circular(4)),
+                    color: const Color(0xff666D72),
+                    borderRadius: BorderRadius.circular(4),
+                  ),
                 ),
               ),
               const SizedBox(
@@ -123,7 +124,7 @@ class Giftpage extends StatelessWidget {
                       hintStyle: GoogleFonts.manrope(
                         fontWeight: FontWeight.w600,
                         fontSize: 10,
-                        color: Color(0xff999EA1),
+                        color: const Color(0xff999EA1),
                       ),
                       suffixIcon:
                           SvgPicture.asset('assets/icons/security_safe.svg'),
@@ -192,7 +193,7 @@ class Giftpage extends StatelessWidget {
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                       primary: ColorsValue.blue100,
-                      minimumSize: Size(double.infinity, 65)),
+                      minimumSize: const Size(double.infinity, 65)),
                   child: Text(
                     'Send money',
                     style: GoogleFonts.manrope(

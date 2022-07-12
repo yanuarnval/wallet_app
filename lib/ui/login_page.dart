@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:technical_challange/ui/home_page.dart';
 import 'package:technical_challange/ui/main_screen.dart';
 
 class LoginPage extends StatefulWidget {
@@ -14,7 +13,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   bool _isRemember = false;
   int _indexClick = 0;
-  bool _isLoading = false;
+  final bool _isLoading = false;
 
   final _loginEmail = TextEditingController();
   final _loginPassword = TextEditingController();
@@ -43,70 +42,71 @@ class _LoginPageState extends State<LoginPage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Center(
-              child: Stack(
-            children: [
-              Column(
-                children: [
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  Text(
-                    (_indexClick == 0) ? 'Login' : 'Register',
-                    style: GoogleFonts.manrope(
-                        fontSize: 40,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.black),
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 40),
-                    child: RichText(
-                      textAlign: TextAlign.center,
-                      text: TextSpan(
-                        text: 'By signing in you are agreeing our ',
-                        style: GoogleFonts.manrope(
-                            color: const Color(0xff6B5E5E),
-                            fontWeight: FontWeight.w400,
-                            fontSize: 20),
-                        children: [
-                          TextSpan(
-                            text: 'Term and privacy policy',
-                            style: GoogleFonts.manrope(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w400,
-                                color: const Color(0xff0386D0)),
-                          ),
-                        ],
-                      ),
+            child: Stack(
+              children: [
+                Column(
+                  children: [
+                    const SizedBox(
+                      height: 30,
                     ),
-                  ),
-                  const SizedBox(
-                    height: 50,
-                  ),
-                  _buildLoginOrRegister(),
-                  _buildPageView(context)
-                ],
-              ),
-              (_isLoading)
-                  ? Positioned(
-                      top: 0,
-                      bottom: 0,
-                      left: 0,
-                      right: 0,
-                      child: Container(
-                        color: Colors.grey.withOpacity(0.3),
-                        child: const Center(
-                          child: CircularProgressIndicator(
-                            color: Colors.blue,
-                          ),
+                    Text(
+                      (_indexClick == 0) ? 'Login' : 'Register',
+                      style: GoogleFonts.manrope(
+                          fontSize: 40,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.black),
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 40),
+                      child: RichText(
+                        textAlign: TextAlign.center,
+                        text: TextSpan(
+                          text: 'By signing in you are agreeing our ',
+                          style: GoogleFonts.manrope(
+                              color: const Color(0xff6B5E5E),
+                              fontWeight: FontWeight.w400,
+                              fontSize: 20),
+                          children: [
+                            TextSpan(
+                              text: 'Term and privacy policy',
+                              style: GoogleFonts.manrope(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w400,
+                                  color: const Color(0xff0386D0)),
+                            ),
+                          ],
                         ),
                       ),
-                    )
-                  : const SizedBox.shrink()
-            ],
-          )),
+                    ),
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    _buildLoginOrRegister(),
+                    _buildPageView(context)
+                  ],
+                ),
+                (_isLoading)
+                    ? Positioned(
+                        top: 0,
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        child: Container(
+                          color: Colors.grey.withOpacity(0.3),
+                          child: const Center(
+                            child: CircularProgressIndicator(
+                              color: Colors.blue,
+                            ),
+                          ),
+                        ),
+                      )
+                    : const SizedBox.shrink()
+              ],
+            ),
+          ),
         ),
       ),
     );
@@ -210,9 +210,6 @@ class _LoginPageState extends State<LoginPage> {
           child: TextFormField(
             style: GoogleFonts.manrope(fontSize: 15.9),
             controller: _loginEmail,
-            validator: (value) {
-              TextfielValidator.validate(value!);
-            },
             decoration: InputDecoration(
                 hintText: 'Email Address',
                 hintStyle: GoogleFonts.manrope(
@@ -327,8 +324,12 @@ class _LoginPageState extends State<LoginPage> {
           padding: const EdgeInsets.symmetric(horizontal: 46.0),
           child: ElevatedButton(
             onPressed: () {
-              Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (BuildContext c) => const MainScreen()));
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (BuildContext c) => const MainScreen(),
+                ),
+              );
             },
             child: Text(
               'Login',
@@ -341,7 +342,10 @@ class _LoginPageState extends State<LoginPage> {
         ),
         Text(
           'or connect with',
-          style: GoogleFonts.manrope(color: Color(0xff747070), fontSize: 16.18),
+          style: GoogleFonts.manrope(
+            color: const Color(0xff747070),
+            fontSize: 16.18,
+          ),
         ),
         const SizedBox(
           height: 17,
@@ -486,7 +490,7 @@ class _LoginPageState extends State<LoginPage> {
             Text(
               'Remember password',
               style: GoogleFonts.manrope(
-                  fontSize: 15.51, color: Color(0xff6B5E5E)),
+                  fontSize: 15.51, color: const Color(0xff6B5E5E)),
             ),
           ],
         ),
@@ -497,8 +501,12 @@ class _LoginPageState extends State<LoginPage> {
           padding: const EdgeInsets.symmetric(horizontal: 46.0),
           child: ElevatedButton(
             onPressed: () {
-              Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (BuildContext c) => const MainScreen()));
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (BuildContext c) => const MainScreen(),
+                ),
+              );
             },
             child: Text(
               'Register',
@@ -511,8 +519,4 @@ class _LoginPageState extends State<LoginPage> {
   }
 }
 
-class TextfielValidator {
-  static String validate(String txt) {
-    return txt.isEmpty ? 'cannot null' : '';
-  }
-}
+

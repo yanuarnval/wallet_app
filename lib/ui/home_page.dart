@@ -13,6 +13,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   String _dropDown = 'All';
+
   final List<String> _itemDropDown = ['All', 'Two', 'Free', 'Four'];
   int _selectedFeatures = 1;
 
@@ -65,30 +66,31 @@ class _HomePageState extends State<HomePage> {
                   const Spacer(),
                   DropdownButtonHideUnderline(
                     child: DropdownButton<String>(
-                        icon: const Icon(
-                          Icons.keyboard_arrow_down,
+                      icon: const Icon(
+                        Icons.keyboard_arrow_down,
+                        color: ColorsValue.black100,
+                        size: 22,
+                      ),
+                      elevation: 0,
+                      value: _dropDown,
+                      isDense: true,
+                      alignment: Alignment.center,
+                      style: GoogleFonts.manrope(
+                          fontWeight: FontWeight.w500,
                           color: ColorsValue.black100,
-                          size: 22,
-                        ),
-                        elevation: 0,
-                        value: _dropDown,
-                        isDense: true,
-                        alignment: Alignment.center,
-                        style: GoogleFonts.manrope(
-                            fontWeight: FontWeight.w500,
-                            color: ColorsValue.black100,
-                            fontSize: 12),
-                        onChanged: (String? newValue) {
-                          setState(() {
-                            _dropDown = newValue!;
-                          });
-                        },
-                        items: _itemDropDown.map((e) {
-                          return DropdownMenuItem(
-                            child: Text(e),
-                            value: e,
-                          );
-                        }).toList()),
+                          fontSize: 12),
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          _dropDown = newValue!;
+                        });
+                      },
+                      items: _itemDropDown.map((e) {
+                        return DropdownMenuItem(
+                          child: Text(e),
+                          value: e,
+                        );
+                      }).toList(),
+                    ),
                   )
                 ],
               ),
@@ -183,7 +185,8 @@ class _HomePageState extends State<HomePage> {
                                 color: ColorsValue.black100.withOpacity(0.35),
                                 spreadRadius: 0.1,
                                 blurRadius: 3,
-                                offset: const Offset(0, 5))
+                                offset: const Offset(0, 5),
+                              )
                             : const BoxShadow(color: Colors.white)
                       ],
                       borderRadius: BorderRadius.circular(5),
@@ -279,8 +282,7 @@ class _HomePageState extends State<HomePage> {
                     child: SizedBox(
                       width: 60,
                       height: 60,
-                      child: Image.asset(
-                          'assets/images/people4.png',
+                      child: Image.asset('assets/images/people4.png',
                           fit: BoxFit.fill),
                     ),
                   ),
@@ -303,9 +305,10 @@ class _HomePageState extends State<HomePage> {
                       Text(
                         '2022-07-6',
                         style: GoogleFonts.manrope(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w600,
-                            color: const Color(0xff999EA1)),
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                          color: const Color(0xff999EA1),
+                        ),
                       )
                     ],
                   ),
@@ -339,7 +342,9 @@ class _HomePageState extends State<HomePage> {
       margin: const EdgeInsets.only(top: 24),
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-          color: ColorsValue.blue100, borderRadius: BorderRadius.circular(5)),
+        color: ColorsValue.blue100,
+        borderRadius: BorderRadius.circular(5),
+      ),
       child: Column(
         children: [
           Row(
